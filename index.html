@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+	  	<meta charset="utf-8">
+
+	  	<title>Time Calculator</title>
+	  	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+	</head>
+
+	<body>
+		<input id="hours-1" value="1">:<input id="minutes-1" value="5">:<input id="seconds-1" value="00"> + <input id="hours-2" value="00">:<input id="minutes-2" value="05">:<input id="seconds-2" value="00"> 
+		<button id="calculate">CALCULATE</button>
+
+		</table>
+	  	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	  	<script>
+	  		$("#calculate").click(function(event)
+	  		{
+	  			var hours_1 = $('#hours-1').val();
+	  			var minutes_1 = $('#minutes-1').val();
+	  			var seconds_1 = $('#seconds-1').val();
+	  			var total_seconds_1 = ((hours_1 * 60) * 60) + (minutes_1 * 60) + ( seconds_1 * 1 );
+
+	  			var hours_2 = $('#hours-2').val();
+	  			var minutes_2 = $('#minutes-2').val();
+	  			var seconds_2 = $('#seconds-2').val();
+	  			var total_seconds_2 = ((hours_2 * 60) * 60) + (minutes_2 * 60) + ( seconds_2 * 1 );
+
+	  			var total_seconds = total_seconds_1 + total_seconds_2;
+	  			var result_hours = Math.floor((total_seconds / 60) / 60);
+	  			var result_minutes = Math.floor((total_seconds - ((result_hours * 60) * 60)) / 60 );
+	  			var result_seconds = (total_seconds - ((result_hours * 60) * 60) - (result_minutes * 60)) / 60;
+
+	  			console.log(leftPad(result_hours, 2)+":"+leftPad(result_minutes, 2)+":"+leftPad(result_seconds, 2));
+	  		});
+
+	  		var leftPad = (number, numberLength) => {
+
+	  			var result = number+'';
+	  			 while (result.length < numberLength) {
+        			result = '0' + result;
+    			}
+
+    			return result;
+	  		}
+	  	</script>
+	  	<!-- <script src="js/scripts.js"></script> -->
+	  <script>
+
+	  </script>
+	</body>
+</html>
